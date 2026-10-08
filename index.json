@@ -1,0 +1,47 @@
+{
+  "registry": "LuckyGuy Extensions Repository",
+  "version": "1.0.0",
+  "updatedAt": "2026-10-09T02:30:00Z",
+  "extensions": [
+    {
+      "id": "luckyguy-ext-youtube",
+      "name": "YouTube Audio Stream Engine",
+      "version": "1.0.0",
+      "description": "High-fidelity YouTube audio stream resolver with format selection and title extraction.",
+      "author": "LuckyGuy Core",
+      "category": "Media Resolver",
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/youtube/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/youtube"
+    },
+    {
+      "id": "luckyguy-ext-spotify",
+      "name": "Spotify Metadata & Scraper Engine",
+      "version": "1.0.0",
+      "description": "Extracts rich Spotify playlist, album, and track metadata with official HD cover art.",
+      "author": "LuckyGuy Core",
+      "category": "Tags & Artwork",
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/spotify/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/spotify"
+    },
+    {
+      "id": "luckyguy-ext-jiosaavn",
+      "name": "JioSaavn 320k Studio CDN Engine",
+      "version": "1.0.0",
+      "description": "Direct pristine 320kbps MP3/AAC CDN media resolver with native crypto DES decryption.",
+      "author": "LuckyGuy Core",
+      "category": "Lossless CDN",
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/jiosaavn/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/jiosaavn"
+    },
+    {
+      "id": "luckyguy-ext-soundcloud",
+      "name": "SoundCloud Stream Engine",
+      "version": "1.0.0",
+      "description": "Resolves SoundCloud indie artist streams, live DJ sets, and official remixes.",
+      "author": "LuckyGuy Community",
+      "category": "Streaming",
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/soundcloud/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/soundcloud"
+    }
+  ]
+}

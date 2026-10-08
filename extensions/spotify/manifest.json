@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/schema.json",
+  "id": "luckyguy-ext-spotify",
+  "name": "Spotify Metadata & Scraper Engine",
+  "version": "1.0.0",
+  "description": "Extracts rich Spotify playlist, album, and track metadata with official HD cover art.",
+  "author": "LuckyGuy Core",
+  "icon": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/icons/spotify.png",
+  "entry": "index.js",
+  "capabilities": ["metadata", "playlist-extraction"],
+  "supportedUrls": [
+    "*://open.spotify.com/*",
+    "*://spotify.link/*"
+  ]
+}

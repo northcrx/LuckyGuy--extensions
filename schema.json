@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LuckyGuyExtensionManifest",
+  "type": "object",
+  "required": ["id", "name", "version", "description", "entry"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique extension identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable plugin name"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semver version string"
+    },
+    "description": {
+      "type": "string",
+      "description": "Summary of plugin capabilities"
+    },
+    "author": {
+      "type": "string"
+    },
+    "entry": {
+      "type": "string",
+      "description": "Main javascript entry point relative to extension folder"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "supportedUrls": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
