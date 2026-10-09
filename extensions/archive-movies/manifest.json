@@ -1,0 +1,27 @@
+{
+  "id": "luckyguy-ext-archive-movies",
+  "name": "Archive Movies & Cinema Portal",
+  "version": "1.0.0",
+  "type": "portal",
+  "rating": "all",
+  "enabled": false,
+  "description": "Stream public domain films, classic documentaries, and open culture videos with ad-blocker and batch page crawler.",
+  "author": "Open Archive Community",
+  "entry": "index.js",
+  "tab": {
+    "title": "Open Cinema",
+    "icon": "Film",
+    "url": "https://archive.org/details/movies",
+    "badge": "HD"
+  },
+  "capabilities": ["stream", "crawlPage", "adblock"],
+  "supportedUrls": [
+    "*://archive.org/details/*",
+    "*://ia80*.*.archive.org/*"
+  ],
+  "adBlockRules": [
+    "*://*.doubleclick.net/*",
+    "*://*.google-analytics.com/*",
+    "*://*.popcash.net/*"
+  ]
+}

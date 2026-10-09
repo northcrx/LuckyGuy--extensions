@@ -1,0 +1,27 @@
+{
+  "id": "luckyguy-ext-radio-browser",
+  "name": "Worldwide Live Radio Hub",
+  "version": "1.0.0",
+  "type": "audio",
+  "rating": "all",
+  "enabled": false,
+  "description": "Stream 30,000+ live worldwide radio stations, podcasts, and community broadcasts.",
+  "author": "Community Broadcasters",
+  "entry": "index.js",
+  "tab": {
+    "title": "Live Radio",
+    "icon": "Radio",
+    "url": "https://www.radio-browser.info",
+    "badge": "LIVE"
+  },
+  "capabilities": ["stream", "crawlPage", "adblock"],
+  "supportedUrls": [
+    "*://*.radio-browser.info/*",
+    "*://*.radioparadise.com/*",
+    "*://*.somafm.com/*"
+  ],
+  "adBlockRules": [
+    "*://*.doubleclick.net/*",
+    "*://*.scorecardresearch.com/*"
+  ]
+}
