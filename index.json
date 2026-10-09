@@ -1,91 +1,177 @@
 {
-  "registry": "LuckyGuy Extensions Repository",
+  "registry": "LuckyGuy Extensions Master Registry",
   "version": "1.2.0",
-  "updatedAt": "2026-10-10T01:50:00Z",
+  "description": "Master index of all official community extensions and plugins for LuckyGuy Desktop.",
+  "updatedAt": "2026-10-10T02:00:00Z",
   "extensions": [
     {
       "id": "luckyguy-ext-archive-movies",
       "name": "Archive Movies & Cinema Portal",
       "version": "1.0.0",
-      "description": "Stream public domain films, classic documentaries, and open culture videos with ad-blocker and batch page crawler.",
-      "author": "Open Archive Community",
+      "type": "portal",
       "category": "Cinema & Video Portal",
       "rating": "all",
       "enabled": false,
+      "description": "Stream public domain films, classic documentaries, and open culture videos with ad-blocker and batch page crawler.",
+      "author": "Open Archive Community",
+      "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/archive-movies/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/archive-movies"
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/archive-movies",
+      "tab": {
+        "title": "Open Cinema",
+        "icon": "Film",
+        "url": "https://archive.org/details/movies",
+        "badge": "HD"
+      },
+      "capabilities": ["stream", "crawlPage", "adblock"],
+      "supportedUrls": [
+        "*://archive.org/details/*",
+        "*://ia80*.*.archive.org/*"
+      ],
+      "adBlockRules": [
+        "*://*.doubleclick.net/*",
+        "*://*.google-analytics.com/*",
+        "*://*.popcash.net/*"
+      ]
     },
     {
       "id": "luckyguy-ext-radio-browser",
       "name": "Worldwide Live Radio Hub",
       "version": "1.0.0",
-      "description": "Stream 30,000+ live worldwide radio stations, podcasts, and community broadcasts.",
-      "author": "Community Broadcasters",
+      "type": "audio",
       "category": "Live Audio & Broadcasts",
       "rating": "all",
       "enabled": false,
+      "description": "Stream 30,000+ live worldwide radio stations, podcasts, and community broadcasts.",
+      "author": "Community Broadcasters",
+      "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/radio-browser/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/radio-browser"
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/radio-browser",
+      "tab": {
+        "title": "Live Radio",
+        "icon": "Radio",
+        "url": "https://www.radio-browser.info",
+        "badge": "LIVE"
+      },
+      "capabilities": ["stream", "crawlPage", "adblock"],
+      "supportedUrls": [
+        "*://*.radio-browser.info/*",
+        "*://*.radioparadise.com/*",
+        "*://*.somafm.com/*"
+      ],
+      "adBlockRules": [
+        "*://*.doubleclick.net/*",
+        "*://*.scorecardresearch.com/*"
+      ]
     },
     {
       "id": "luckyguy-ext-youtube",
       "name": "YouTube Audio Stream Engine",
       "version": "1.0.0",
-      "description": "High-fidelity YouTube audio stream resolver with format selection and title extraction.",
-      "author": "LuckyGuy Core",
       "category": "Media Resolver",
       "rating": "all",
       "enabled": false,
+      "description": "High-fidelity YouTube audio stream resolver with format selection and title extraction.",
+      "author": "LuckyGuy Core",
+      "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/youtube/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/youtube"
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/youtube",
+      "capabilities": ["stream", "download", "metadata"],
+      "supportedUrls": [
+        "*://*.youtube.com/*",
+        "*://youtu.be/*"
+      ]
     },
     {
       "id": "luckyguy-ext-spotify",
       "name": "Spotify Metadata & Scraper Engine",
       "version": "1.0.0",
-      "description": "Extracts rich Spotify playlist, album, and track metadata with official HD cover art.",
-      "author": "LuckyGuy Core",
       "category": "Tags & Artwork",
       "rating": "all",
       "enabled": false,
+      "description": "Extracts rich Spotify playlist, album, and track metadata with official HD cover art.",
+      "author": "LuckyGuy Core",
+      "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/spotify/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/spotify"
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/spotify",
+      "capabilities": ["metadata", "playlist-extraction"],
+      "supportedUrls": [
+        "*://open.spotify.com/*",
+        "*://spotify.link/*"
+      ]
     },
     {
       "id": "luckyguy-ext-jiosaavn",
       "name": "JioSaavn 320k Studio CDN Engine",
       "version": "1.0.0",
-      "description": "Direct pristine 320kbps MP3/AAC CDN media resolver with native crypto DES decryption.",
-      "author": "LuckyGuy Core",
       "category": "Lossless CDN",
       "rating": "all",
       "enabled": false,
+      "description": "Direct pristine 320kbps MP3/AAC CDN media resolver with native crypto DES decryption.",
+      "author": "LuckyGuy Core",
+      "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/jiosaavn/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/jiosaavn"
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/jiosaavn",
+      "capabilities": ["stream", "download", "search", "320kbps"],
+      "supportedUrls": [
+        "*://*.jiosaavn.com/*"
+      ]
     },
     {
       "id": "luckyguy-ext-soundcloud",
       "name": "SoundCloud Stream Engine",
       "version": "1.0.0",
-      "description": "Resolves SoundCloud indie artist streams, live DJ sets, and official remixes.",
-      "author": "LuckyGuy Community",
       "category": "Streaming",
       "rating": "all",
       "enabled": false,
+      "description": "Resolves SoundCloud indie artist streams, live DJ sets, and official remixes.",
+      "author": "LuckyGuy Community",
+      "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/soundcloud/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/soundcloud"
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/soundcloud",
+      "capabilities": ["stream", "metadata"],
+      "supportedUrls": [
+        "*://*.soundcloud.com/*"
+      ]
     },
     {
       "id": "luckyguy-ext-pornhub",
       "name": "Pornhub Video & Crawler Engine",
       "version": "1.0.0",
-      "description": "Video resolver and crawler extension with dedicated sidebar tab and back-end ad blocking.",
-      "author": "Community Contributor",
+      "type": "portal",
       "category": "Adult Media & Stream Resolver",
       "rating": "18+",
       "enabled": false,
+      "description": "Video resolver and crawler extension with dedicated sidebar tab and back-end ad blocking.",
+      "author": "Community Contributor",
+      "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/pornhub/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/pornhub"
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/pornhub",
+      "tab": {
+        "title": "Pornhub Portal",
+        "icon": "Film",
+        "url": "https://www.pornhub.com",
+        "badge": "18+"
+      },
+      "capabilities": [
+        "stream",
+        "crawlPage",
+        "search",
+        "adblock"
+      ],
+      "supportedUrls": [
+        "*://*.pornhub.com/*",
+        "*://*.phncdn.com/*"
+      ],
+      "adBlockRules": [
+        "*://*.trafficjunky.com/*",
+        "*://*.trafficjunky.net/*",
+        "*://*.hubtraffic.com/*",
+        "*://*popunder*/*",
+        "*://*adservice*/*",
+        "*://*.tsyndicate.com/*",
+        "*://*.exoclick.com/*"
+      ]
     }
   ]
 }

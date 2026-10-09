@@ -4,21 +4,32 @@ Official community extensions repository and plugin SDK specifications for [Luck
 
 ---
 
-## 🚀 Quick Install: Direct Extension URLs for LuckyGuy Desktop
+## ⚡ 1 Master URL to Index Everything (All-in-One Registry)
 
-To install any of the extensions below directly into your LuckyGuy application:
+Instead of installing plugins one-by-one, you can index and install **every official extension at once** using this single master registry URL:
 
-1. Open **LuckyGuy Desktop** and go to **Settings** (`⚙️`) in the sidebar.
+```
+https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/index.json
+```
+
+### 📋 How to Index Everything in LuckyGuy Desktop:
+1. Open **LuckyGuy Desktop** and click **Settings** (`⚙️`) in the sidebar.
 2. Select **Plugins** (or **Plugins & Modular Extensions**).
-3. Under **Install Extension via URL**, copy and paste any **Direct Manifest URL** below into the input box:
-4. Click **Install Plugin**.
-5. Once installed, flip the toggle switch **ON** to enable the extension and its sidebar tab!
+3. In the **Extension Manifest URL** field, paste:
+   ```
+   https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/index.json
+   ```
+4. Click **Install Plugin** (or use the in-app **"Index All Official Extensions"** button).
+5. All 7 extensions will be indexed and registered in your library immediately!
+6. **Complete User Freedom**: All extensions are installed **disabled by default**. It is entirely up to you inside the software to toggle **ON** only the extensions and stream portals you actually want, leaving the rest disabled.
 
 ---
 
-### 📦 Available Extensions Registry
+## 📦 Individual Extension Manifest URLs
 
-| Extension Name | Category | Description | Direct Manifest URL (Copy & Paste in App) | Rating |
+If you prefer to install only specific standalone extensions rather than indexing the entire suite, use any of the direct URLs below:
+
+| Extension Name | Category | Description | Standalone Manifest URL (Copy & Paste in App) | Rating |
 | :--- | :--- | :--- | :--- | :--- |
 | **Archive Cinema & Movies** | Cinema & Video Portal | Stream public domain films, classic documentaries, and open culture videos with ad-blocker & batch crawler. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/archive-movies/manifest.json` | All |
 | **Worldwide Live Radio Hub** | Live Audio & Broadcasts | Stream 30,000+ live worldwide radio stations, podcasts, and community broadcasts. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/radio-browser/manifest.json` | All |
@@ -28,16 +39,13 @@ To install any of the extensions below directly into your LuckyGuy application:
 | **SoundCloud Stream Engine** | Streaming | Resolves SoundCloud indie artist streams, live DJ sets, and official remixes. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/soundcloud/manifest.json` | All |
 | **Pornhub Video & Crawler** | Adult Media & Stream Resolver | Video resolver and crawler extension with dedicated sidebar tab and back-end ad blocking. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/pornhub/manifest.json` | 18+ |
 
-> **Full Repository Registry Index**:  
-> `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/index.json`
-
 ---
 
 ## 🛡️ Architecture & Philosophy
 
 LuckyGuy follows an offline-first, neutral architecture:
 - **No Proprietary Scrapers in Core**: The application core contains zero hardcoded scrapers, pirated streams, or adult scripts.
-- **User Choice & Explicit Opt-In**: Newly installed plugins are disabled by default. Users have full granular control over which extensions to enable or disable.
+- **User Choice & Explicit Opt-In**: Newly installed plugins are disabled by default. Users have full granular control over which extensions to enable or disable inside the software.
 - **User-Declared Dynamic Tabs**: Instead of rigid built-in tabs, plugins declare their own custom tabs directly in LuckyGuy's sidebar.
 - **Integrated Back-End Ad Blocker**: Webview portals run through LuckyGuy's ad blocker to strip popunders, malicious redirects, and tracking scripts before media buffers.
 - **Open SDK Freedom**: Users and third-party developers can build, distribute, and install custom source plugins, video portals, and webpage crawlers via raw GitHub URLs.
