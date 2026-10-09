@@ -8,7 +8,7 @@ const VIDEO_KEY_REGEX = /[?&]viewkey=([a-zA-Z0-9_-]+)/;
 module.exports = {
   isSupported(url) {
     if (!url) return false;
-    return url.includes('pornhub.com') || url.includes('phncdn.com');
+    return url.includes('pornhub.org') || url.includes('pornhub.com') || url.includes('phncdn.com');
   },
 
   extractVideoKey(url) {
@@ -27,10 +27,10 @@ module.exports = {
     }
 
     try {
-      const resp = await fetch(`https://www.pornhub.com/view_video.php?viewkey=${viewKey}`, {
+      const resp = await fetch(`https://www.pornhub.org/view_video.php?viewkey=${viewKey}`, {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-          'Referer': 'https://www.pornhub.com/'
+          'Referer': 'https://www.pornhub.org/'
         }
       });
 
@@ -43,7 +43,7 @@ module.exports = {
       // Extract title
       const titleMatch = html.match(/<h1[^>]*class="[^"]*inlineFree[^"]*"[^>]*>(.*?)<\/h1>/s) ||
                          html.match(/<title>(.*?)<\/title>/);
-      let title = titleMatch ? titleMatch[1].replace(' - Pornhub.com', '').trim() : `Video ${viewKey}`;
+      let title = titleMatch ? titleMatch[1].replace(' - Pornhub.org', '').replace(' - Pornhub.com', '').trim() : `Video ${viewKey}`;
 
       // Extract poster / thumbnail
       const thumbMatch = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i) ||
@@ -92,7 +92,7 @@ module.exports = {
         format: videoUrl?.includes('.m3u8') ? 'HLS' : 'MP4',
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-          'Referer': 'https://www.pornhub.com/'
+          'Referer': 'https://www.pornhub.org/'
         }
       };
     } catch (err) {
@@ -105,10 +105,10 @@ module.exports = {
    */
   async crawlPage(pageUrl) {
     try {
-      const resp = await fetch(pageUrl || 'https://www.pornhub.com/video', {
+      const resp = await fetch(pageUrl || 'https://www.pornhub.org/video', {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-          'Referer': 'https://www.pornhub.com/'
+          'Referer': 'https://www.pornhub.org/'
         }
       });
 
@@ -141,7 +141,7 @@ module.exports = {
           title,
           thumbnail,
           duration,
-          url: `https://www.pornhub.com/view_video.php?viewkey=${vkey}`,
+          url: `https://www.pornhub.org/view_video.php?viewkey=${vkey}`,
           size: '~120 MB'
         });
       }

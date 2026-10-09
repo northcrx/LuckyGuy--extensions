@@ -11,7 +11,7 @@
   "tab": {
     "title": "Pornhub Portal",
     "icon": "Film",
-    "url": "https://www.pornhub.com",
+    "url": "https://www.pornhub.org",
     "badge": "18+"
   },
   "capabilities": [
@@ -21,6 +21,7 @@
     "adblock"
   ],
   "supportedUrls": [
+    "*://*.pornhub.org/*",
     "*://*.pornhub.com/*",
     "*://*.phncdn.com/*"
   ],
