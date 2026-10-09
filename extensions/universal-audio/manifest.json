@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/schema.json",
+  "id": "luckyguy-ext-universal-audio",
+  "name": "Universal Audio & Music Engine (YouTube • Spotify • JioSaavn • SoundCloud)",
+  "version": "1.0.0",
+  "type": "audio",
+  "category": "Core Audio Streaming Engine",
+  "rating": "all",
+  "enabled": false,
+  "description": "All-in-one music engine combining YouTube HD audio, Spotify rich metadata & cover art, JioSaavn 320kbps lossless CDN, and SoundCloud streams into a single unified audio resolver.",
+  "author": "LuckyGuy Core Suite",
+  "entry": "index.js",
+  "capabilities": ["stream", "download", "search", "320kbps", "metadata", "playlist-extraction"],
+  "supportedUrls": [
+    "*://*.youtube.com/*",
+    "*://youtu.be/*",
+    "*://open.spotify.com/*",
+    "*://spotify.link/*",
+    "*://*.jiosaavn.com/*",
+    "*://*.soundcloud.com/*"
+  ]
+}
