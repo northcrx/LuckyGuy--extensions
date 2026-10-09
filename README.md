@@ -4,12 +4,43 @@ Official community extensions repository and plugin SDK specifications for [Luck
 
 ---
 
-## 📦 Architecture & Philosophy
+## 🚀 Quick Install: Direct Extension URLs for LuckyGuy Desktop
 
-LuckyGuy follows an offline-first, neutral architecture. The core application serves as a media manager, multi-threaded download orchestrator, and media player.
-- **No Proprietary or Rated Content in Core**: The application core contains zero hardcoded scrapers, pirated streams, or adult scripts.
-- **User-Declared Dynamic Tabs**: Instead of rigid built-in stream tabs, plugins declare their own custom tabs directly in LuckyGuy's sidebar.
-- **Open SDK Freedom**: Users and third-party developers can build, distribute, and install custom source plugins, video portals, webpage crawlers (including mature/adult or indie platforms), and appearance skins via GitHub URLs.
+To install any of the extensions below directly into your LuckyGuy application:
+
+1. Open **LuckyGuy Desktop** and go to **Settings** (`⚙️`) in the sidebar.
+2. Select **Plugins** (or **Plugins & Modular Extensions**).
+3. Under **Install Extension via URL**, copy and paste any **Direct Manifest URL** below into the input box:
+4. Click **Install Plugin**.
+5. Once installed, flip the toggle switch **ON** to enable the extension and its sidebar tab!
+
+---
+
+### 📦 Available Extensions Registry
+
+| Extension Name | Category | Description | Direct Manifest URL (Copy & Paste in App) | Rating |
+| :--- | :--- | :--- | :--- | :--- |
+| **Archive Cinema & Movies** | Cinema & Video Portal | Stream public domain films, classic documentaries, and open culture videos with ad-blocker & batch crawler. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/archive-movies/manifest.json` | All |
+| **Worldwide Live Radio Hub** | Live Audio & Broadcasts | Stream 30,000+ live worldwide radio stations, podcasts, and community broadcasts. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/radio-browser/manifest.json` | All |
+| **YouTube Audio Stream Engine** | Media Resolver | High-fidelity YouTube audio stream resolver with format selection and title extraction. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/youtube/manifest.json` | All |
+| **Spotify Metadata & Scraper** | Tags & Artwork | Extracts rich Spotify playlist, album, and track metadata with official HD cover art. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/spotify/manifest.json` | All |
+| **JioSaavn 320k Studio CDN** | Lossless CDN | Direct pristine 320kbps MP3/AAC CDN media resolver with native crypto DES decryption. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/jiosaavn/manifest.json` | All |
+| **SoundCloud Stream Engine** | Streaming | Resolves SoundCloud indie artist streams, live DJ sets, and official remixes. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/soundcloud/manifest.json` | All |
+| **Pornhub Video & Crawler** | Adult Media & Stream Resolver | Video resolver and crawler extension with dedicated sidebar tab and back-end ad blocking. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/pornhub/manifest.json` | 18+ |
+
+> **Full Repository Registry Index**:  
+> `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/index.json`
+
+---
+
+## 🛡️ Architecture & Philosophy
+
+LuckyGuy follows an offline-first, neutral architecture:
+- **No Proprietary Scrapers in Core**: The application core contains zero hardcoded scrapers, pirated streams, or adult scripts.
+- **User Choice & Explicit Opt-In**: Newly installed plugins are disabled by default. Users have full granular control over which extensions to enable or disable.
+- **User-Declared Dynamic Tabs**: Instead of rigid built-in tabs, plugins declare their own custom tabs directly in LuckyGuy's sidebar.
+- **Integrated Back-End Ad Blocker**: Webview portals run through LuckyGuy's ad blocker to strip popunders, malicious redirects, and tracking scripts before media buffers.
+- **Open SDK Freedom**: Users and third-party developers can build, distribute, and install custom source plugins, video portals, and webpage crawlers via raw GitHub URLs.
 
 ---
 
@@ -23,12 +54,12 @@ Every extension provides a `manifest.json` conforming to [`schema.json`](schema.
   "name": "Community Video Portal",
   "version": "1.0.0",
   "type": "portal",
-  "rating": "mature",
+  "rating": "all",
   "description": "Custom media portal with integrated ad blocking and bulk video download",
   "author": "Community Developer",
   "entry": "index.js",
   "tab": {
-    "title": "Anime Hub",
+    "title": "Open Cinema",
     "icon": "Film",
     "url": "https://example-streaming-portal.org",
     "badge": "HD"
@@ -72,7 +103,6 @@ module.exports = {
 
   // 3. Batch Webpage Crawler (Scan 100-200 videos from category/page)
   async crawlPage(pageUrl) {
-    // Scrapes video listings from the webpage
     return [
       {
         id: 'vid-101',
@@ -89,41 +119,14 @@ module.exports = {
 
 ---
 
-## 🛡️ Integrated Back-end Ad Blocker
+## 🧪 Testing Plugins Without Compilation
 
-All plugin tabs run through LuckyGuy's integrated back-end ad blocker:
-- Blocks popunders, malicious redirects, and tracking scripts before media buffers.
-- Plugins can bundle custom `adBlockRules` targeting specific ad networks.
-- Users can customize and add their own ad-blocking blacklists in **Rules**.
-
----
-
-## 🎨 Appearance & Themes SDK
-
-Custom appearances can be packaged as `theme.json` or CSS bundles loaded in Settings:
-
-```json
-{
-  "id": "neon-cyberpunk",
-  "name": "Neon Cyberpunk",
-  "version": "1.0.0",
-  "tokens": {
-    "--primary": "#06b6d4",
-    "--bg-main": "#0f172a",
-    "--bg-card": "#1e293b",
-    "--text-primary": "#f8fafc"
-  }
-}
-```
-
----
-
-## 📥 How to Install Plugins in LuckyGuy
-
-1. Open **LuckyGuy**.
-2. Go to **Settings → Plugins & Extensions**.
-3. Paste the plugin's `manifest.json` URL (e.g., from raw GitHub or personal host).
-4. Click **Install Plugin**. LuckyGuy registers the engine safely in your sandbox.
+You don't need a code editor, local compiler, or Git repository to test or run extensions:
+1. Open **LuckyGuy Desktop → Settings → Plugins**.
+2. Click **"Paste Code / JSON"**.
+3. Paste your manifest JSON or JS script directly into the box.
+4. Click **"Test & Save Script"** to validate syntax and save.
+5. Toggle the switch **ON** to activate the tab in your sidebar!
 
 ---
 

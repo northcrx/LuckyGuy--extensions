@@ -1,7 +1,7 @@
 {
   "registry": "LuckyGuy Extensions Repository",
   "version": "1.2.0",
-  "updatedAt": "2026-10-10T01:10:00Z",
+  "updatedAt": "2026-10-10T01:50:00Z",
   "extensions": [
     {
       "id": "luckyguy-ext-archive-movies",
@@ -12,8 +12,8 @@
       "category": "Cinema & Video Portal",
       "rating": "all",
       "enabled": false,
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/archive-movies/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/archive-movies"
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/archive-movies/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/archive-movies"
     },
     {
       "id": "luckyguy-ext-radio-browser",
@@ -24,8 +24,8 @@
       "category": "Live Audio & Broadcasts",
       "rating": "all",
       "enabled": false,
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/radio-browser/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/radio-browser"
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/radio-browser/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/radio-browser"
     },
     {
       "id": "luckyguy-ext-youtube",
@@ -36,8 +36,8 @@
       "category": "Media Resolver",
       "rating": "all",
       "enabled": false,
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/youtube/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/youtube"
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/youtube/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/youtube"
     },
     {
       "id": "luckyguy-ext-spotify",
@@ -48,8 +48,8 @@
       "category": "Tags & Artwork",
       "rating": "all",
       "enabled": false,
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/spotify/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/spotify"
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/spotify/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/spotify"
     },
     {
       "id": "luckyguy-ext-jiosaavn",
@@ -60,8 +60,8 @@
       "category": "Lossless CDN",
       "rating": "all",
       "enabled": false,
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/jiosaavn/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/jiosaavn"
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/jiosaavn/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/jiosaavn"
     },
     {
       "id": "luckyguy-ext-soundcloud",
@@ -72,8 +72,8 @@
       "category": "Streaming",
       "rating": "all",
       "enabled": false,
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/soundcloud/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/soundcloud"
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/soundcloud/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/soundcloud"
     },
     {
       "id": "luckyguy-ext-pornhub",
@@ -84,8 +84,8 @@
       "category": "Adult Media & Stream Resolver",
       "rating": "18+",
       "enabled": false,
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/pornhub/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/pornhub"
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/pornhub/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/pornhub"
     }
   ]
 }
