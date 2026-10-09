@@ -143,36 +143,48 @@
       ]
     },
     {
-      "id": "luckyguy-ext-telegraph",
-      "name": "Telegraph Video & Image Downloader",
+      "id": "luckyguy-ext-telegram",
+      "name": "Telegram",
       "version": "1.0.0",
       "type": "hybrid",
       "rating": "all",
-      "description": "Extract and batch download high-resolution images, photo albums, and videos from Telegra.ph and Telegram posts.",
-      "author": "Community Contributor",
-      "category": "Media & Image Downloader",
+      "description": "Download original high-speed videos, voice notes, photos, and media from Telegram channels, posts, and bots.",
+      "author": "LuckyGuy Community",
+      "category": "Video & Media Downloader",
       "entry": "index.js",
       "mediaTypes": [
+        "video",
         "image",
-        "video"
+        "audio",
+        "document"
       ],
       "tab": {
-        "title": "Telegraph Downloader",
-        "icon": "DownloadCloud",
-        "url": "https://telegra.ph",
+        "title": "Telegram",
+        "icon": "Send",
+        "url": "https://t.me/s/telegram",
+        "defaultUrl": "https://t.me/s/telegram",
         "badge": "MEDIA",
-        "viewLayout": "gallery"
+        "viewLayout": "grid",
+        "themeColor": "#229ED9"
       },
       "settings": {
-        "title": "Telegraph Downloader Settings",
-        "description": "Configure Telegraph/Telegram API access, resolution filters, and automatic album batch extraction.",
+        "title": "Telegram Settings",
+        "description": "Authenticate via Telegram Bot Token or configure public channel streaming and download directories.",
         "fields": [
           {
-            "id": "apiToken",
-            "label": "Telegra.ph / Telegram Access Token (Optional)",
+            "id": "botToken",
+            "label": "Telegram Bot Token",
             "type": "password",
-            "placeholder": "Enter bot or access token...",
-            "description": "Optional token used to query private channels or create pages"
+            "placeholder": "123456789:ABCdefGhIJKlmNoPQRstuVWXyz",
+            "description": "Optional: Bot token from @BotFather to download files directly from bot chats or private channels"
+          },
+          {
+            "id": "defaultChannel",
+            "label": "Default Channel / Post Link",
+            "type": "text",
+            "placeholder": "https://t.me/s/telegram or @channelname",
+            "defaultValue": "https://t.me/s/telegram",
+            "description": "Public channel username or web preview link to index on startup"
           },
           {
             "id": "mediaFilter",
@@ -181,57 +193,54 @@
             "defaultValue": "all",
             "options": [
               {
-                "label": "All Media (Images & Videos)",
+                "label": "All Media (Videos, Photos & Audio)",
                 "value": "all"
               },
               {
-                "label": "Images & Photo Albums Only",
-                "value": "images"
+                "label": "Videos Only (MP4 HD)",
+                "value": "videos"
               },
               {
-                "label": "Videos Only",
-                "value": "videos"
+                "label": "Photos & Wallpapers Only",
+                "value": "photos"
               }
             ],
-            "description": "Choose whether to scan images, videos, or both"
+            "description": "Filter the types of media retrieved from channels"
           },
           {
-            "id": "imageQuality",
-            "label": "Image Download Quality",
+            "id": "videoQuality",
+            "label": "Video Resolution & Quality",
             "type": "select",
-            "defaultValue": "original",
+            "defaultValue": "1080p",
             "options": [
               {
-                "label": "Original Full Resolution",
-                "value": "original"
+                "label": "Original 1080p Full Quality",
+                "value": "1080p"
               },
               {
-                "label": "Compressed HD (Faster)",
-                "value": "compressed"
+                "label": "Optimized 720p HD",
+                "value": "720p"
+              },
+              {
+                "label": "Compressed 480p (Fast Download)",
+                "value": "480p"
               }
             ],
-            "description": "Save uncompressed original photography or optimized JPEG"
-          },
-          {
-            "id": "autoBatchGalleries",
-            "label": "Auto-Extract Photo Albums",
-            "type": "boolean",
-            "defaultValue": true,
-            "description": "Automatically queue all images in an article/post for one-click downloading"
+            "description": "Preferred video download bitrate and resolution"
           },
           {
             "id": "customFolder",
             "label": "Dedicated Download Directory",
             "type": "folder",
-            "placeholder": "Default Downloads/Telegraph folder",
-            "description": "Custom directory path where Telegraph media will be organized"
+            "placeholder": "Default Music/Videos folder",
+            "description": "Destination directory where Telegram videos and files are saved"
           },
           {
             "id": "customCode",
-            "label": "Custom URL Extractor Hook (JavaScript)",
+            "label": "Custom Webhook or Extractor Script (JavaScript)",
             "type": "code",
-            "placeholder": "// Optional JavaScript hook\nfunction onExtract(items) {\n  return items;\n}",
-            "description": "Advanced custom script for URL transformation and header injection"
+            "placeholder": "// Optional Telegram custom post parser or webhook hook\nfunction onMessage(msg) {\n  return msg;\n}",
+            "description": "Custom JavaScript hook for transforming Telegram payloads or injecting headers"
           }
         ]
       },
@@ -239,17 +248,27 @@
         "stream",
         "crawlPage",
         "download",
+        "videoPlayer",
         "imageGallery"
       ],
       "supportedUrls": [
-        "*://telegra.ph/*",
-        "*://*.telegra.ph/*",
         "*://t.me/*",
-        "*://*.t.me/*"
+        "*://*.t.me/*",
+        "*://telegram.me/*",
+        "*://*.telegram.me/*",
+        "*://api.telegram.org/*",
+        "*://web.telegram.org/*",
+        "*://cdn*.telesco.pe/*"
+      ],
+      "domainAliases": [
+        {
+          "from": "telegram.me",
+          "to": "t.me"
+        }
       ],
       "enabled": false,
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/telegraph/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/telegraph"
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/telegram/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/telegram"
     }
   ]
 }
