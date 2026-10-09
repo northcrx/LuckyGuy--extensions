@@ -1,8 +1,8 @@
 {
   "registry": "LuckyGuy Extensions Master Registry",
-  "version": "1.3.0",
-  "description": "Master index of all official community extensions and plugins for LuckyGuy Desktop.",
-  "updatedAt": "2026-10-10T02:15:00Z",
+  "version": "1.4.0",
+  "description": "Master index of extensions and plugins for LuckyGuy Desktop.",
+  "updatedAt": "2026-10-10T02:22:00Z",
   "extensions": [
     {
       "id": "luckyguy-ext-universal-audio",
@@ -13,7 +13,7 @@
       "rating": "all",
       "enabled": false,
       "description": "All-in-one music engine combining YouTube HD audio, Spotify rich metadata & cover art, JioSaavn 320kbps lossless CDN, and SoundCloud streams into a single unified audio resolver.",
-      "author": "LuckyGuy Core Suite",
+      "author": "Community Contributor",
       "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/universal-audio/manifest.json",
       "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions",
@@ -36,7 +36,7 @@
       "rating": "all",
       "enabled": false,
       "description": "Stream public domain films, classic documentaries, and open culture videos with ad-blocker and batch page crawler.",
-      "author": "Open Archive Community",
+      "author": "Community Contributor",
       "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/archive-movies/manifest.json",
       "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/archive-movies",
@@ -66,7 +66,7 @@
       "rating": "all",
       "enabled": false,
       "description": "Stream 30,000+ live worldwide radio stations, podcasts, and community broadcasts.",
-      "author": "Community Broadcasters",
+      "author": "Community Contributor",
       "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/radio-browser/manifest.json",
       "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/radio-browser",
@@ -124,76 +124,6 @@
         "*://*adservice*/*",
         "*://*.tsyndicate.com/*",
         "*://*.exoclick.com/*"
-      ]
-    },
-    {
-      "id": "luckyguy-ext-youtube",
-      "name": "YouTube Audio Stream Engine",
-      "version": "1.0.0",
-      "category": "Media Resolver",
-      "rating": "all",
-      "enabled": false,
-      "description": "High-fidelity YouTube audio stream resolver with format selection and title extraction.",
-      "author": "LuckyGuy Core",
-      "entry": "index.js",
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/youtube/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/youtube",
-      "capabilities": ["stream", "download", "metadata"],
-      "supportedUrls": [
-        "*://*.youtube.com/*",
-        "*://youtu.be/*"
-      ]
-    },
-    {
-      "id": "luckyguy-ext-spotify",
-      "name": "Spotify Metadata & Scraper Engine",
-      "version": "1.0.0",
-      "category": "Tags & Artwork",
-      "rating": "all",
-      "enabled": false,
-      "description": "Extracts rich Spotify playlist, album, and track metadata with official HD cover art.",
-      "author": "LuckyGuy Core",
-      "entry": "index.js",
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/spotify/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/spotify",
-      "capabilities": ["metadata", "playlist-extraction"],
-      "supportedUrls": [
-        "*://open.spotify.com/*",
-        "*://spotify.link/*"
-      ]
-    },
-    {
-      "id": "luckyguy-ext-jiosaavn",
-      "name": "JioSaavn 320k Studio CDN Engine",
-      "version": "1.0.0",
-      "category": "Lossless CDN",
-      "rating": "all",
-      "enabled": false,
-      "description": "Direct pristine 320kbps MP3/AAC CDN media resolver with native crypto DES decryption.",
-      "author": "LuckyGuy Core",
-      "entry": "index.js",
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/jiosaavn/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/jiosaavn",
-      "capabilities": ["stream", "download", "search", "320kbps"],
-      "supportedUrls": [
-        "*://*.jiosaavn.com/*"
-      ]
-    },
-    {
-      "id": "luckyguy-ext-soundcloud",
-      "name": "SoundCloud Stream Engine",
-      "version": "1.0.0",
-      "category": "Streaming",
-      "rating": "all",
-      "enabled": false,
-      "description": "Resolves SoundCloud indie artist streams, live DJ sets, and official remixes.",
-      "author": "LuckyGuy Community",
-      "entry": "index.js",
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/soundcloud/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/soundcloud",
-      "capabilities": ["stream", "metadata"],
-      "supportedUrls": [
-        "*://*.soundcloud.com/*"
       ]
     }
   ]
