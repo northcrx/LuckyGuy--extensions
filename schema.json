@@ -43,15 +43,89 @@
       "required": ["title"],
       "properties": {
         "title": { "type": "string", "description": "Tab label displayed in sidebar" },
-        "icon": { "type": "string", "description": "Icon name (e.g. Sparkles, Film, Compass)" },
+        "icon": { "type": "string", "description": "Icon name (e.g. Sparkles, Film, Compass, DownloadCloud, Image)" },
         "url": { "type": "string", "description": "Default source URL or portal loaded inside tab view" },
-        "badge": { "type": "string", "description": "Optional pill tag (e.g. HD, 18+, LIVE)" }
+        "badge": { "type": "string", "description": "Optional pill tag (e.g. HD, 18+, LIVE, MEDIA)" },
+        "viewLayout": {
+          "type": "string",
+          "enum": ["cinema", "gallery", "feed", "web"],
+          "description": "Layout style: cinema (75/25 video split), gallery (masonry image cards), feed, or raw web"
+        }
       }
+    },
+    "settings": {
+      "type": "object",
+      "description": "Declare custom settings, API credentials, and options rendered in dedicated Settings tab",
+      "required": ["title", "fields"],
+      "properties": {
+        "title": { "type": "string", "description": "Settings section title" },
+        "description": { "type": "string", "description": "Help text explaining plugin setup requirements" },
+        "fields": {
+          "type": "array",
+          "description": "Interactive settings fields rendered automatically in LuckyGuy settings",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "type"],
+            "properties": {
+              "id": { "type": "string" },
+              "label": { "type": "string" },
+              "type": {
+                "type": "string",
+                "enum": ["text", "password", "select", "boolean", "number", "folder", "code", "textarea"]
+              },
+              "placeholder": { "type": "string" },
+              "defaultValue": {},
+              "description": { "type": "string" },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": { "type": "string" },
+                    "value": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "domainAliases": {
+      "type": "array",
+      "description": "Auto-redirect blocked or regional domains (e.g. pornhub.com -> pornhub.org)",
+      "items": {
+        "type": "object",
+        "required": ["from", "to"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "region": { "type": "string" }
+        }
+      }
+    },
+    "cookies": {
+      "type": "array",
+      "description": "Session disclaimer / consent cookies auto-injected for electron session and webview",
+      "items": {
+        "type": "object",
+        "required": ["name", "value"],
+        "properties": {
+          "name": { "type": "string" },
+          "value": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "mediaTypes": {
+      "type": "array",
+      "description": "Supported media kinds: video, image, audio, album",
+      "items": { "type": "string" }
     },
     "capabilities": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "Declared capabilities: stream, search, crawlPage, download, adblock"
+      "description": "Declared capabilities: stream, search, crawlPage, download, adblock, imageGallery"
     },
     "supportedUrls": {
       "type": "array",

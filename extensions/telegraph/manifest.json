@@ -1,0 +1,88 @@
+{
+  "id": "luckyguy-ext-telegraph",
+  "name": "Telegraph Video & Image Downloader",
+  "version": "1.0.0",
+  "type": "hybrid",
+  "rating": "all",
+  "description": "Extract and batch download high-resolution images, photo albums, and videos from Telegra.ph and Telegram posts.",
+  "author": "Community Contributor",
+  "category": "Media & Image Downloader",
+  "entry": "index.js",
+  "mediaTypes": ["image", "video"],
+  "tab": {
+    "title": "Telegraph Downloader",
+    "icon": "DownloadCloud",
+    "url": "https://telegra.ph",
+    "badge": "MEDIA",
+    "viewLayout": "gallery"
+  },
+  "settings": {
+    "title": "Telegraph Downloader Settings",
+    "description": "Configure Telegraph/Telegram API access, resolution filters, and automatic album batch extraction.",
+    "fields": [
+      {
+        "id": "apiToken",
+        "label": "Telegra.ph / Telegram Access Token (Optional)",
+        "type": "password",
+        "placeholder": "Enter bot or access token...",
+        "description": "Optional token used to query private channels or create pages"
+      },
+      {
+        "id": "mediaFilter",
+        "label": "Media Extraction Filter",
+        "type": "select",
+        "defaultValue": "all",
+        "options": [
+          { "label": "All Media (Images & Videos)", "value": "all" },
+          { "label": "Images & Photo Albums Only", "value": "images" },
+          { "label": "Videos Only", "value": "videos" }
+        ],
+        "description": "Choose whether to scan images, videos, or both"
+      },
+      {
+        "id": "imageQuality",
+        "label": "Image Download Quality",
+        "type": "select",
+        "defaultValue": "original",
+        "options": [
+          { "label": "Original Full Resolution", "value": "original" },
+          { "label": "Compressed HD (Faster)", "value": "compressed" }
+        ],
+        "description": "Save uncompressed original photography or optimized JPEG"
+      },
+      {
+        "id": "autoBatchGalleries",
+        "label": "Auto-Extract Photo Albums",
+        "type": "boolean",
+        "defaultValue": true,
+        "description": "Automatically queue all images in an article/post for one-click downloading"
+      },
+      {
+        "id": "customFolder",
+        "label": "Dedicated Download Directory",
+        "type": "folder",
+        "placeholder": "Default Downloads/Telegraph folder",
+        "description": "Custom directory path where Telegraph media will be organized"
+      },
+      {
+        "id": "customCode",
+        "label": "Custom URL Extractor Hook (JavaScript)",
+        "type": "code",
+        "placeholder": "// Optional JavaScript hook\nfunction onExtract(items) {\n  return items;\n}",
+        "description": "Advanced custom script for URL transformation and header injection"
+      }
+    ]
+  },
+  "capabilities": [
+    "stream",
+    "crawlPage",
+    "download",
+    "imageGallery"
+  ],
+  "supportedUrls": [
+    "*://telegra.ph/*",
+    "*://*.telegra.ph/*",
+    "*://t.me/*",
+    "*://*.t.me/*"
+  ]
+}
