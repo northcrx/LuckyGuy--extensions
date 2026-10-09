@@ -1,7 +1,7 @@
 {
   "registry": "LuckyGuy Extensions Repository",
-  "version": "1.0.0",
-  "updatedAt": "2026-10-09T02:30:00Z",
+  "version": "1.1.0",
+  "updatedAt": "2026-10-10T00:30:00Z",
   "extensions": [
     {
       "id": "luckyguy-ext-youtube",
@@ -10,8 +10,9 @@
       "description": "High-fidelity YouTube audio stream resolver with format selection and title extraction.",
       "author": "LuckyGuy Core",
       "category": "Media Resolver",
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/youtube/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/youtube"
+      "rating": "all",
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/youtube/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/youtube"
     },
     {
       "id": "luckyguy-ext-spotify",
@@ -20,8 +21,9 @@
       "description": "Extracts rich Spotify playlist, album, and track metadata with official HD cover art.",
       "author": "LuckyGuy Core",
       "category": "Tags & Artwork",
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/spotify/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/spotify"
+      "rating": "all",
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/spotify/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/spotify"
     },
     {
       "id": "luckyguy-ext-jiosaavn",
@@ -30,8 +32,9 @@
       "description": "Direct pristine 320kbps MP3/AAC CDN media resolver with native crypto DES decryption.",
       "author": "LuckyGuy Core",
       "category": "Lossless CDN",
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/jiosaavn/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/jiosaavn"
+      "rating": "all",
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/jiosaavn/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/jiosaavn"
     },
     {
       "id": "luckyguy-ext-soundcloud",
@@ -40,8 +43,20 @@
       "description": "Resolves SoundCloud indie artist streams, live DJ sets, and official remixes.",
       "author": "LuckyGuy Community",
       "category": "Streaming",
-      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/soundcloud/manifest.json",
-      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/soundcloud"
+      "rating": "all",
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/soundcloud/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/soundcloud"
+    },
+    {
+      "id": "luckyguy-ext-pornhub",
+      "name": "Pornhub Video & Crawler Engine",
+      "version": "1.0.0",
+      "description": "Video resolver and crawler extension with dedicated sidebar tab and back-end ad blocking.",
+      "author": "Community Contributor",
+      "category": "Adult Media & Stream Resolver",
+      "rating": "18+",
+      "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy-extensions/main/extensions/pornhub/manifest.json",
+      "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy-extensions/tree/main/extensions/pornhub"
     }
   ]
 }

@@ -27,13 +27,40 @@
       "type": "string",
       "description": "Main javascript entry point relative to extension folder"
     },
+    "type": {
+      "type": "string",
+      "enum": ["audio", "video", "crawler", "theme", "portal", "hybrid"],
+      "description": "Type of plugin or engine"
+    },
+    "rating": {
+      "type": "string",
+      "enum": ["all", "mature", "18+"],
+      "description": "Content rating flag for custom user/adult scrapers"
+    },
+    "tab": {
+      "type": "object",
+      "description": "Declare a custom dedicated tab in the LuckyGuy navigation sidebar",
+      "required": ["title"],
+      "properties": {
+        "title": { "type": "string", "description": "Tab label displayed in sidebar" },
+        "icon": { "type": "string", "description": "Icon name (e.g. Sparkles, Film, Compass)" },
+        "url": { "type": "string", "description": "Default source URL or portal loaded inside tab view" },
+        "badge": { "type": "string", "description": "Optional pill tag (e.g. HD, 18+, LIVE)" }
+      }
+    },
     "capabilities": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string" },
+      "description": "Declared capabilities: stream, search, crawlPage, download, adblock"
     },
     "supportedUrls": {
       "type": "array",
       "items": { "type": "string" }
+    },
+    "adBlockRules": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Custom domain patterns or ad scripts to block for this provider"
     }
   }
 }
