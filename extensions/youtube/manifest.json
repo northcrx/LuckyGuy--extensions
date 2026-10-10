@@ -1,15 +1,39 @@
 {
   "$schema": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/schema.json",
   "id": "luckyguy-ext-youtube",
-  "name": "YouTube Video & Audio Stream Engine",
-  "version": "1.1.0",
+  "name": "YouTube",
+  "version": "1.2.0",
+  "type": "portal",
+  "category": "Video & Media",
+  "rating": "all",
+  "enabled": false,
   "description": "High-speed YouTube video & audio extractor powered by yt-dlp with format selection and MP4 direct download.",
-  "author": "LuckyGuy Core",
+  "author": "LuckyGuy Community",
   "icon": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/icons/youtube.png",
   "entry": "index.js",
-  "capabilities": ["stream", "download", "metadata", "search", "videoPlayer"],
+  "mediaTypes": [
+    "video",
+    "audio"
+  ],
+  "tab": {
+    "title": "YouTube",
+    "icon": "Youtube",
+    "url": "https://www.youtube.com",
+    "viewLayout": "grid",
+    "themeColor": "#FF0000"
+  },
+  "capabilities": [
+    "stream",
+    "crawlPage",
+    "download",
+    "metadata",
+    "search",
+    "videoPlayer"
+  ],
   "supportedUrls": [
     "*://*.youtube.com/*",
     "*://youtu.be/*"
-  ]
+  ],
+  "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/youtube/manifest.json",
+  "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/youtube"
 }
