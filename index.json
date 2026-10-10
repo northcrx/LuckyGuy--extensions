@@ -104,27 +104,29 @@
     },
     {
       "id": "luckyguy-ext-pornhub",
-      "name": "Pornhub Video & Crawler Engine",
-      "version": "1.0.0",
+      "name": "Pornhub",
+      "version": "1.1.0",
       "type": "portal",
-      "category": "Adult Media & Stream Resolver",
+      "category": "Video & Media",
       "rating": "18+",
       "enabled": false,
-      "description": "Video resolver and crawler extension with dedicated sidebar tab and back-end ad blocking.",
+      "description": "Video resolver and crawler extension with dedicated sidebar tab, multi-quality video player, and back-end ad blocking.",
       "author": "Community Contributor",
       "entry": "index.js",
       "downloadUrl": "https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/pornhub/manifest.json",
       "repoUrl": "https://github.com/nishantkumrmishra/LuckyGuy--extensions/tree/main/extensions/pornhub",
       "tab": {
-        "title": "Pornhub Portal",
-        "icon": "Film",
+        "title": "Pornhub",
+        "icon": "Pornhub",
         "url": "https://www.pornhub.org",
-        "badge": "18+"
+        "viewLayout": "cinema"
       },
       "capabilities": [
         "stream",
         "crawlPage",
         "search",
+        "videoPlayer",
+        "download",
         "adblock"
       ],
       "supportedUrls": [

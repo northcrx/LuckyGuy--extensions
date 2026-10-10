@@ -6,15 +6,15 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "Unique extension identifier"
+      "description": "Unique extension identifier (e.g. luckyguy-ext-pornhub)"
     },
     "name": {
       "type": "string",
-      "description": "Human-readable plugin name"
+      "description": "Exact human-readable plugin name (e.g. Pornhub, Telegram)"
     },
     "version": {
       "type": "string",
-      "description": "Semver version string"
+      "description": "Semver version string (e.g. 1.1.0)"
     },
     "description": {
       "type": "string",
@@ -42,15 +42,81 @@
       "description": "Declare a custom dedicated tab in the LuckyGuy navigation sidebar",
       "required": ["title"],
       "properties": {
-        "title": { "type": "string", "description": "Tab label displayed in sidebar" },
-        "icon": { "type": "string", "description": "Icon name (e.g. Sparkles, Film, Compass, DownloadCloud, Image)" },
+        "title": { "type": "string", "description": "Tab label displayed in sidebar (e.g. Pornhub, Telegram)" },
+        "icon": { "type": "string", "description": "Duo-tone or branded icon name (e.g. Pornhub, Video, Film, Send, Sparkles, DownloadCloud, Image)" },
         "url": { "type": "string", "description": "Default source URL or portal loaded inside tab view" },
-        "badge": { "type": "string", "description": "Optional pill tag (e.g. HD, 18+, LIVE, MEDIA)" },
+        "badge": { "type": "string", "description": "Optional pill tag (e.g. HD, MEDIA)" },
         "viewLayout": {
           "type": "string",
           "enum": ["cinema", "gallery", "feed", "web"],
-          "description": "Layout style: cinema (75/25 video split), gallery (masonry image cards), feed, or raw web"
+          "description": "Layout style: cinema (video playback focus), gallery (masonry image cards), feed, or web"
         }
+      }
+    },
+    "crawler": {
+      "type": "object",
+      "description": "Headless webview crawler and auto-scroller configuration",
+      "properties": {
+        "scrollStrategy": {
+          "type": "object",
+          "properties": {
+            "step": { "type": "number", "description": "Pixel scroll jump per cycle (e.g. 600)" },
+            "interval": { "type": "number", "description": "Millisecond interval between scroll cycles (e.g. 800)" },
+            "maxScrollCycles": { "type": "number", "description": "Maximum auto-scroll iterations before extracting (e.g. 8)" }
+          }
+        },
+        "mediaGrid": {
+          "type": "object",
+          "properties": {
+            "itemSelector": { "type": "string", "description": "CSS selector matching each media card" },
+            "titleSelector": { "type": "string", "description": "CSS selector matching item title" },
+            "lazyAttributes": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Fallback image attribute chain: ['data-mediumthumb', 'data-image', 'data-thumb_url', 'data-src', 'src']"
+            },
+            "durationSelector": { "type": "string", "description": "CSS selector for duration" },
+            "uploaderSelector": { "type": "string", "description": "CSS selector for artist / uploader" }
+          }
+        }
+      }
+    },
+    "streamResolver": {
+      "type": "object",
+      "description": "Direct video / audio stream resolution specifications",
+      "properties": {
+        "formats": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["MP4", "HLS", "DASH", "WEBM"] }
+        },
+        "defaultQuality": { "type": "string", "description": "Default quality preferred (e.g. 1080p, 720p)" },
+        "headers": {
+          "type": "object",
+          "description": "Required HTTP headers for CDN playback and chunked downloading (e.g. Referer, User-Agent)"
+        }
+      }
+    },
+    "videoPlayer": {
+      "type": "object",
+      "description": "Integration with LuckyGuy's custom in-app video player",
+      "properties": {
+        "flushTop": { "type": "boolean", "description": "Starts video player flush at the top with zero toolbar margin" },
+        "qualitySelector": { "type": "boolean", "description": "Enables in-player resolution selector (1080p, 720p, 480p)" },
+        "directDownload": { "type": "boolean", "description": "Enables one-click download directly inside player" },
+        "autoIndexToVideosTab": { "type": "boolean", "description": "Downloaded video is automatically indexed into the Videos tab" }
+      }
+    },
+    "downloader": {
+      "type": "object",
+      "description": "Downloader and storage pipeline routing",
+      "properties": {
+        "targetDirectory": {
+          "type": "string",
+          "enum": ["Videos", "Downloads", "Music"],
+          "description": "Target folder on user's system (defaults to Videos for video files)"
+        },
+        "rangeHeaders": { "type": "boolean", "description": "Enable HTTP Range requests for resume and segmented chunking" },
+        "retryOnReset": { "type": "boolean", "description": "Auto-retry on ECONNRESET socket drops" }
       }
     },
     "settings": {
@@ -125,7 +191,7 @@
     "capabilities": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "Declared capabilities: stream, search, crawlPage, download, adblock, imageGallery"
+      "description": "Declared capabilities: stream, search, crawlPage, download, videoPlayer, adblock, imageGallery"
     },
     "supportedUrls": {
       "type": "array",

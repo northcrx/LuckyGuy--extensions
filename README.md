@@ -1,4 +1,4 @@
-# LuckyGuy Extensions & Plugins SDK
+# LuckyGuy Extensions & Plugins SDK (v3.0)
 
 Official community extensions repository and plugin SDK specifications for [LuckyGuy Desktop](https://github.com/nishantkumrmishra/LuckyGuy).
 
@@ -20,7 +20,7 @@ https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/in
    https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/index.json
    ```
 4. Click **Install Plugin** (or use the in-app **"Index All Official Extensions"** button).
-5. All 7 extensions will be indexed and registered in your library immediately!
+5. All extensions will be indexed and registered in your library immediately!
 6. **Complete User Freedom**: All extensions are installed **disabled by default**. It is entirely up to you inside the software to toggle **ON** only the extensions and stream portals you actually want, leaving the rest disabled.
 
 ---
@@ -33,22 +33,25 @@ If you prefer to install only specific standalone extensions rather than indexin
 | :--- | :--- | :--- | :--- | :--- |
 | **Archive Cinema & Movies** | Cinema & Video Portal | Stream public domain films, classic documentaries, and open culture videos with ad-blocker & batch crawler. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/archive-movies/manifest.json` | All |
 | **Worldwide Live Radio Hub** | Live Audio & Broadcasts | Stream 30,000+ live worldwide radio stations, podcasts, and community broadcasts. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/radio-browser/manifest.json` | All |
+| **Telegram** | Video & Media Downloader | Download original high-speed videos, voice notes, photos, and media from Telegram channels, posts, and bots. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/telegram/manifest.json` | All |
 | **YouTube Audio Stream Engine** | Media Resolver | High-fidelity YouTube audio stream resolver with format selection and title extraction. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/youtube/manifest.json` | All |
 | **Spotify Metadata & Scraper** | Tags & Artwork | Extracts rich Spotify playlist, album, and track metadata with official HD cover art. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/spotify/manifest.json` | All |
 | **JioSaavn 320k Studio CDN** | Lossless CDN | Direct pristine 320kbps MP3/AAC CDN media resolver with native crypto DES decryption. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/jiosaavn/manifest.json` | All |
 | **SoundCloud Stream Engine** | Streaming | Resolves SoundCloud indie artist streams, live DJ sets, and official remixes. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/soundcloud/manifest.json` | All |
-| **Pornhub Video & Crawler** | Adult Media & Stream Resolver | Video resolver and crawler extension with dedicated sidebar tab and back-end ad blocking. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/pornhub/manifest.json` | 18+ |
+| **Pornhub** | Video & Media | Video resolver and crawler extension with dedicated sidebar tab, multi-quality video player, and back-end ad blocking. | `https://raw.githubusercontent.com/nishantkumrmishra/LuckyGuy--extensions/main/extensions/pornhub/manifest.json` | 18+ |
 
 ---
 
 ## 🛡️ Architecture & Philosophy
 
 LuckyGuy follows an offline-first, neutral architecture:
-- **No Proprietary Scrapers in Core**: The application core contains zero hardcoded scrapers, pirated streams, or adult scripts.
-- **User Choice & Explicit Opt-In**: Newly installed plugins are disabled by default. Users have full granular control over which extensions to enable or disable inside the software.
-- **User-Declared Dynamic Tabs**: Instead of rigid built-in tabs, plugins declare their own custom tabs directly in LuckyGuy's sidebar.
+- **Exact Brand Naming**: Extensions use exact, canonical names (e.g. `Pornhub`, `Telegram`) with no unnecessary suffixes like "Provider" or "Portal".
+- **Duo-Tone UI Cohesion**: Icons seamlessly match LuckyGuy's minimalist duo-tone styling (`DuoVideo`, `DuoPornhub`, `DuoLibrary`, `DuoHome`, `DuoDownload`).
+- **Headless Crawler & Auto-Scroller**: Webview background scrapers simulate smooth page scrolling, trigger dynamic AJAX/DOM insertion, resolve image fallback attribute chains (`data-mediumthumb`, `data-image`, `data-src`), and deduplicate cards.
+- **Dedicated Videos Tab Indexing**: Downloaded video files are automatically organized into the user's `Videos` folder and indexed in the unified **Videos** tab for offline playback.
+- **In-App Flush Video Player**: Native video player starts flush at the top with multi-quality resolution selectors (`1080p`, `720p`, `480p`) and one-click in-player download buttons.
 - **Integrated Back-End Ad Blocker**: Webview portals run through LuckyGuy's ad blocker to strip popunders, malicious redirects, and tracking scripts before media buffers.
-- **Open SDK Freedom**: Users and third-party developers can build, distribute, and install custom source plugins, video portals, and webpage crawlers via raw GitHub URLs.
+- **Chunked HTTP Range Resuming**: CDNs are accessed with exact `Referer` and `User-Agent` headers with automatic reconnect and resume for interrupted downloads.
 
 ---
 
@@ -58,33 +61,24 @@ Every extension provides a `manifest.json` conforming to [`schema.json`](schema.
 
 ```json
 {
-  "id": "my-media-portal",
-  "name": "Community Video Portal",
+  "id": "luckyguy-ext-myservice",
+  "name": "MyService",
   "version": "1.0.0",
   "type": "portal",
   "rating": "all",
-  "description": "Custom media portal with integrated ad blocking and bulk video download",
+  "description": "Video resolver and crawler extension with multi-quality streaming and batch downloader",
   "author": "Community Developer",
   "entry": "index.js",
   "tab": {
-    "title": "Open Cinema",
-    "icon": "Film",
-    "url": "https://example-streaming-portal.org",
-    "badge": "HD"
+    "title": "MyService",
+    "icon": "Video",
+    "url": "https://myservice.org",
+    "viewLayout": "cinema"
   },
-  "capabilities": ["stream", "crawlPage", "adblock"],
-  "supportedUrls": ["*://example-streaming-portal.org/*"],
-  "adBlockRules": [
-    "*://*.popunder-ad.com/*",
-    "*://*.redirect-tracker.net/*"
-  ]
+  "capabilities": ["stream", "crawlPage", "videoPlayer", "download", "adblock"],
+  "supportedUrls": ["*://*.myservice.org/*"]
 }
 ```
-
-### Dynamic Sidebar Tab Injection
-If your plugin declares `"tab"`, LuckyGuy automatically injects a navigation button into the desktop sidebar:
-- Clicking the tab opens the plugin's dedicated container view.
-- Disabling or uninstalling the plugin cleanly removes the tab from the sidebar.
 
 ### Implementing `index.js`
 Your plugin exports standard lifecycle hooks:
@@ -93,23 +87,31 @@ Your plugin exports standard lifecycle hooks:
 module.exports = {
   // 1. URL pattern check
   isSupported(url) {
-    return url.includes('example-streaming-portal.org');
+    return url && url.includes('myservice.org');
   },
 
-  // 2. Single Stream Resolver (with Ad-Bypass headers)
+  // 2. Single Video Stream Resolver (with multi-quality tiers & CDN headers)
   async resolve(url) {
     return {
-      title: 'Sample Stream Title',
-      videoUrl: 'https://cdn.example.com/stream.m3u8',
-      format: 'HLS',
+      title: 'Video Title',
+      thumbnail: 'https://cdn.myservice.org/thumb.jpg',
+      videoUrl: 'https://cdn.myservice.org/1080p.mp4',
+      qualities: [
+        { label: '1080p', url: 'https://cdn.myservice.org/1080p.mp4' },
+        { label: '720p', url: 'https://cdn.myservice.org/720p.mp4' },
+        { label: '480p', url: 'https://cdn.myservice.org/480p.mp4' }
+      ],
+      format: 'MP4',
+      formatType: 'VIDEO',
+      mediaType: 'video',
       headers: {
-        'Referer': 'https://example-streaming-portal.org/',
+        'Referer': 'https://myservice.org/',
         'User-Agent': 'Mozilla/5.0 ...'
       }
     };
   },
 
-  // 3. Batch Webpage Crawler (Scan 100-200 videos from category/page)
+  // 3. Batch Webpage Crawler (Auto-scrolled DOM cards)
   async crawlPage(pageUrl) {
     return [
       {
@@ -118,7 +120,7 @@ module.exports = {
         thumbnail: 'https://.../thumb.jpg',
         duration: '12:45',
         size: '120 MB',
-        url: 'https://.../video1.mp4'
+        url: 'https://myservice.org/view/101'
       }
     ];
   }

@@ -1,29 +1,42 @@
 {
   "id": "luckyguy-ext-pornhub",
-  "name": "Pornhub Video & Crawler Engine",
-  "version": "1.0.0",
+  "name": "Pornhub",
+  "version": "1.1.0",
   "type": "portal",
   "rating": "18+",
-  "description": "Video resolver and crawler extension with dedicated sidebar tab and back-end ad blocking.",
+  "description": "Video resolver and crawler extension with dedicated sidebar tab, multi-quality video player, and back-end ad blocking.",
   "author": "Community Contributor",
-  "category": "Adult Media & Stream Resolver",
+  "category": "Video & Media",
   "entry": "index.js",
   "tab": {
-    "title": "Pornhub Portal",
-    "icon": "Film",
+    "title": "Pornhub",
+    "icon": "Pornhub",
     "url": "https://www.pornhub.org",
-    "badge": "18+"
+    "viewLayout": "cinema"
   },
   "capabilities": [
     "stream",
     "crawlPage",
     "search",
+    "videoPlayer",
+    "download",
     "adblock"
   ],
   "supportedUrls": [
     "*://*.pornhub.org/*",
     "*://*.pornhub.com/*",
     "*://*.phncdn.com/*"
+  ],
+  "domainAliases": [
+    { "from": "pornhub.com", "to": "pornhub.org" }
+  ],
+  "cookies": [
+    { "name": "accessAgeDisclaimerPH", "value": "1", "url": "https://www.pornhub.org" },
+    { "name": "age_verified", "value": "1", "url": "https://www.pornhub.org" },
+    { "name": "hasVisited", "value": "1", "url": "https://www.pornhub.org" },
+    { "name": "accessPH", "value": "1", "url": "https://www.pornhub.org" },
+    { "name": "cookieConsent", "value": "1", "url": "https://www.pornhub.org" },
+    { "name": "platform", "value": "pc", "url": "https://www.pornhub.org" }
   ],
   "adBlockRules": [
     "*://*.trafficjunky.com/*",
