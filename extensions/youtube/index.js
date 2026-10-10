@@ -48,6 +48,22 @@ function extractPlaylistId(url) {
 }
 
 async function fetchVideoMetadata(videoId) {
+  const targetUrl = (videoId && videoId.length === 11) ? `https://www.youtube.com/watch?v=${videoId}` : videoId;
+
+  // 1. Check if window.electronAPI is available with yt-dlp bridge
+  if (typeof window !== 'undefined' && window.electronAPI?.ytdlpExtract) {
+    try {
+      const res = await window.electronAPI.ytdlpExtract(targetUrl);
+      if (res && !res.error && res.id) {
+        return res;
+      }
+    } catch (e) {
+      console.warn('yt-dlp IPC extraction fallback:', e.message);
+    }
+  }
+
+  // 2. Innertube player API extraction
+  const cleanId = extractVideoId(videoId) || videoId;
   for (const clientConfig of INNERTUBE_CLIENTS) {
     try {
       const payload = {
@@ -63,7 +79,7 @@ async function fetchVideoMetadata(videoId) {
             gl: 'US'
           }
         },
-        videoId: videoId,
+        videoId: cleanId,
         playbackContext: {
           contentPlaybackContext: {
             html5Preference: 'HTML5_PREF_WANTS'
@@ -120,57 +136,55 @@ async function fetchVideoMetadata(videoId) {
         }))
         .sort((a, b) => b.bitrate - a.bitrate);
 
-      // Video only adaptive streams
-      const videoAdaptiveStreams = adaptiveFormats
-        .filter(f => f.url && f.mimeType && f.mimeType.startsWith('video/'))
-        .map(f => ({
-          itag: f.itag,
-          url: f.url,
-          qualityLabel: f.qualityLabel || `${f.height}p`,
-          mimeType: f.mimeType,
-          contentLength: parseInt(f.contentLength || '0', 10),
-          isVideo: true,
-          isAudio: false,
-          bitrate: f.bitrate
-        }));
-
       const thumbs = videoDetails.thumbnail?.thumbnails || [];
-      const bestThumbnail = thumbs.length > 0 ? thumbs[thumbs.length - 1].url : `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-
-      // Select direct progressive stream or audio stream
+      const bestThumbnail = thumbs.length > 0 ? thumbs[thumbs.length - 1].url : `https://i.ytimg.com/vi/${cleanId}/hqdefault.jpg`;
       const bestProgressive = progressiveStreams.find(s => s.itag === 22) || progressiveStreams[0] || null;
       const bestAudio = audioStreams[0] || null;
 
+      const streamsMap = {};
+      progressiveStreams.forEach(s => {
+        if (s.qualityLabel && s.url) streamsMap[s.qualityLabel] = s.url;
+      });
+
       return {
-        id: videoId,
+        id: cleanId,
         title: videoDetails.title || 'YouTube Video',
         author: videoDetails.author || 'YouTube Creator',
-        durationSeconds: parseInt(videoDetails.lengthSeconds || '0', 10),
-        thumbnailUrl: bestThumbnail,
+        channel: videoDetails.author || 'YouTube',
+        duration: parseInt(videoDetails.lengthSeconds || '0', 10),
+        durationFormatted: `${Math.floor((parseInt(videoDetails.lengthSeconds || '0', 10)) / 60)}:${(parseInt(videoDetails.lengthSeconds || '0', 10)) % 60}`,
+        thumbnail: bestThumbnail,
+        artworkUrl: bestThumbnail,
         progressiveStreams,
         audioStreams,
-        videoAdaptiveStreams,
-        directStreamUrl: bestProgressive ? bestProgressive.url : (bestAudio ? bestAudio.url : null)
+        streams: streamsMap,
+        streamUrl: bestProgressive ? bestProgressive.url : (bestAudio ? bestAudio.url : null),
+        directStreamUrl: bestProgressive ? bestProgressive.url : (bestAudio ? bestAudio.url : null),
+        formatType: 'VIDEO',
+        mediaType: 'video'
       };
     } catch (err) {
       console.warn(`YouTube Innertube error with ${clientConfig.clientName}:`, err.message);
     }
   }
 
-  // Fallback: oEmbed metadata if player API fails
+  // 3. Fallback: oEmbed metadata if player API fails
   try {
-    const oembedResp = await fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`);
+    const oembedResp = await fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${cleanId}&format=json`);
     if (oembedResp.ok) {
       const oembed = await oembedResp.json();
       return {
-        id: videoId,
+        id: cleanId,
         title: oembed.title || 'YouTube Video',
         author: oembed.author_name || 'YouTube',
-        durationSeconds: 0,
-        thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+        duration: 0,
+        thumbnail: `https://i.ytimg.com/vi/${cleanId}/maxresdefault.jpg`,
+        artworkUrl: `https://i.ytimg.com/vi/${cleanId}/maxresdefault.jpg`,
         progressiveStreams: [],
         audioStreams: [],
-        directStreamUrl: null
+        directStreamUrl: null,
+        formatType: 'VIDEO',
+        mediaType: 'video'
       };
     }
   } catch (e) {}
@@ -178,8 +192,19 @@ async function fetchVideoMetadata(videoId) {
   return null;
 }
 
+async function searchVideos(query, limit = 20) {
+  if (typeof window !== 'undefined' && window.electronAPI?.ytdlpSearch) {
+    try {
+      const results = await window.electronAPI.ytdlpSearch(query, limit);
+      if (results && results.length > 0) return results;
+    } catch (e) {}
+  }
+  return [];
+}
+
 module.exports = {
   extractVideoId,
   extractPlaylistId,
-  fetchVideoMetadata
+  fetchVideoMetadata,
+  searchVideos
 };
